@@ -4,11 +4,13 @@ public class Noticia {
     private String imagen;
     private String titulo;
     private String descripcion;
+    private String origen;
 
-    public Noticia(String imagen, String descripcion, String titulo) {
+    public Noticia(String imagen, String descripcion, String titulo, String origen) {
         this.imagen = imagen;
         this.descripcion = descripcion;
         this.titulo = titulo;
+        this.origen = origen;
     }
 
     public String getDescripcion() {
@@ -34,4 +36,8 @@ public class Noticia {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    public String getOrigen() { return origen; }
+
+    public void setOrigen(String origen) { this.origen = origen;}
 }

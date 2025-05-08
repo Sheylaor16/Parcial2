@@ -1,7 +1,17 @@
 package com.example.fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,43 +30,50 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView btn_navigation;
+    EditText edt_usuario, edt_contrasena;
+    Button btn_guardar;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        btn_navigation = findViewById(R.id.btn_navigation);
+        edt_usuario = findViewById(R.id.edt_usuario);
+        edt_contrasena = findViewById(R.id.edt_contrasena);
 
-        loadFragment(new NoticiaFragment());
+        btn_guardar = findViewById(R.id.btn_guardar);
 
-        btn_navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public void onClick(View v) {
+                guardarDatos();
+            }
 
-                Fragment selectedFragment = null;
-                int itemId = item.getItemId();
-                if (itemId == R.id.nav_noticias){
-                    selectedFragment = new NoticiaFragment();
-                } else if (itemId == R.id.nav_perfil) {
-                    selectedFragment = new PerfilFragment();
-                } else if (itemId == R.id.nav_setting) {
-                    selectedFragment = new SettingFragment();
+            private void guardarDatos() {
+                String usuario = edt_usuario.getText().toString();
+                String contrasena = edt_contrasena.getText().toString();
+
+                if (usuario.equalsIgnoreCase("") || contrasena.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Por favor llenar todos los campos", Toast.LENGTH_LONG).show();
+                    return;
                 }
 
-                if (selectedFragment != null){
-                    loadFragment(selectedFragment);
-                    return true;
-                }
-                return false;
+                SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("usuario", usuario);
+                editor.putInt("contrasena", Integer.parseInt(contrasena));
+                editor.apply();
+
+                redirigirInicio(usuario);
+            }
+
+            private void redirigirInicio(String usuario) {
+                Intent intent = null;
+                intent = new Intent(MainActivity.this, InicioActivity.class);
+                startActivity(intent);
             }
         });
-
-    }
-
-    private void loadFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.frm_container,fragment).commit();
     }
 }

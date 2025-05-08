@@ -6,11 +6,6 @@
         android:icon="@drawable/ic_noticia"
         />
     <item
-        android:id="@+id/nav_perfil"
-        android:title="Pelfil"
-        android:icon="@drawable/ic_perfil"
-        />
-    <item
         android:id="@+id/nav_setting"
         android:title="Configuracion"
         android:icon="@drawable/ic_setting"

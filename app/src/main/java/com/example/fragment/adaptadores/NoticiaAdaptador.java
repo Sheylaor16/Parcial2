@@ -43,19 +43,21 @@ public class NoticiaAdaptador extends RecyclerView.Adapter<NoticiaAdaptador.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txt_titulo_noticia, txt_descrpcion_noticia;
+        TextView txt_titulo_noticia, txt_descrpcion_noticia, txt_origen_noticia;
         ImageView ing_noticia;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txt_titulo_noticia = itemView.findViewById(R.id.txt_titulo_noticia);
             txt_descrpcion_noticia = itemView.findViewById(R.id.txt_descripcion_noticia);
+            txt_origen_noticia = itemView.findViewById(R.id.txt_origen_noticia);
             ing_noticia = itemView.findViewById(R.id.ing_noticia);
         }
 
         public void bind(Noticia dato){
             txt_titulo_noticia.setText(dato.getTitulo());
             txt_descrpcion_noticia.setText(dato.getDescripcion());
+            txt_origen_noticia.setText(dato.getTitulo());
             Picasso.get().load(dato.getImagen()).into(ing_noticia);
         }
     }

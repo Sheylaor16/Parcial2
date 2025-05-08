@@ -76,11 +76,11 @@ public class NoticiaFragment extends Fragment {
 
         rcv_noticias = view.findViewById(R.id.rcv_noticias);
 
-        Noticia not1 = new Noticia("https://animeflash2.xyz/media/portadas/rickymorty.webp", "2013 - 7 seasons","Rick and Morty");
-        Noticia not2 = new Noticia("https://thaka.bing.com/th/id/OIP.aUgvbh6VyGfwp7WjR-O3MgHaHa?rs=1&pid=ImgDetMain", "Mora - 2023 Album","ESTRELLA");
-        Noticia not3 = new Noticia("https://thaka.bing.com/th/id/OIP.NJOzuZNdSSK3cdHJ21SMNAHaHa?rs=1&pid=ImgDetMain", "Mora - 2022 Album","PARAISO");
-        Noticia not4 = new Noticia("https://www.diariodemexico.com/sites/default/files/inline-images/mora.jpg", "Mora - 2022 Album","MICRODOSIS");
-        Noticia not5 = new Noticia("https://thaka.bing.com/th/id/OIP.BckaV_xbjC6c3xIuSkTNkwHaHa?rs=1&pid=ImgDetMain", "Eladio Carrion - 2021 Album","Sauce Boyz 2");
+        Noticia not1 = new Noticia("https://animeflash2.xyz/media/portadas/rickymorty.webp", "2013 - 7 seasons","Rick and Morty", "EEUU");
+        Noticia not2 = new Noticia("https://thaka.bing.com/th/id/OIP.aUgvbh6VyGfwp7WjR-O3MgHaHa?rs=1&pid=ImgDetMain", "Mora - 2023","ESTRELLA", "PR");
+        Noticia not3 = new Noticia("https://thaka.bing.com/th/id/OIP.NJOzuZNdSSK3cdHJ21SMNAHaHa?rs=1&pid=ImgDetMain", "Mora - 2022","PARAISO", "PR");
+        Noticia not4 = new Noticia("https://www.diariodemexico.com/sites/default/files/inline-images/mora.jpg", "Mora - 2022","MICRODOSIS", "PR");
+        Noticia not5 = new Noticia("https://thaka.bing.com/th/id/OIP.BckaV_xbjC6c3xIuSkTNkwHaHa?rs=1&pid=ImgDetMain", "Eladio Carrion - 2021","Sauce Boyz 2", "EEUU");
 
         listaNoticia.add(not1);
         listaNoticia.add(not2);
